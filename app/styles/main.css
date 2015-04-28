@@ -17,3 +17,6 @@ table thead th,
 table tbody tr {
 	text-align: center;
 }
+.pointer {
+	cursor: pointer;
+}

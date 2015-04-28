@@ -11,15 +11,15 @@
 				<table class="table">
 					<thead>
 						<tr class="odd">
-							<th ng-click="sortOrder()"></th>
-							<th ng-click="sortOrder()">Date</th>
-							<th ng-click="sortOrder()">Quantity</th>
-							<th ng-click="sortOrder()">Net Sale</th>
-							<th ng-click="sortOrder()">Cost of Goods</th>					
+							<th></th>
+							<th class="pointer" ng-click="orderByField='date'; reverseSort = !reverseSort">Date <span ng-class="{ 'dropup': !reverseSort }"><span class="caret"></span></span></th>
+							<th class="pointer" ng-click="orderByField='quantity'; reverseSort = !reverseSort">Quantity <span ng-class="{ 'dropup': !reverseSort }"><span class="caret"></span></span></th>
+							<th class="pointer" ng-click="orderByField='netSale'; reverseSort = !reverseSort">Net Sale <span ng-class="{ 'dropup': !reverseSort }"><span class="caret"></span></span></th>
+							<th class="pointer" ng-click="orderByField='costOfGoods'; reverseSort = !reverseSort">Cost of Goods <span ng-class="{ 'dropup': !reverseSort }"><span class="caret"></span></span></th>					
 						</tr>
 					</thead>
 					<tbody>
-						<tr ng-repeat="record in sales | limitTo:numOfRecords" ng-class="{ odd: $odd }">
+						<tr ng-repeat="record in sales | orderBy:orderByField:reverseSort | limitTo:numOfRecords" ng-class="{ odd: $odd }">
 							<td>{{ $index + 1 }}</td>
 							<td>{{ record.date | date:'MMM dd, yyyy' | uppercase }}</td>
 							<td>{{ record.quantity }}</td>

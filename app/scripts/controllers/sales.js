@@ -3,6 +3,10 @@
 angular.module('core')
 	.controller('SalesController', function($scope) {
 		
+		// Set the default order by field and reverse order flag
+		$scope.orderByField = '';
+		$scope.reverseFlag = false;
+
 		$scope.sales = [{
 		    date: '2012-01-01',
 		    quantity: '500',
