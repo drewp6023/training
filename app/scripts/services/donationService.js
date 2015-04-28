@@ -6,5 +6,5 @@ angular.module('core')
 
 		return {
 			donations: donations
-		}
+		};
 	});
