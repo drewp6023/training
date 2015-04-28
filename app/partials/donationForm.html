@@ -1,0 +1,41 @@
+<form ng-submit="submit()" name="donationForm" novalidate ng-controller="DonationFormController as dc" class="donation-form">
+	<img ng-show="thankYouFlag" class="thank-you-img" src="app/images/thank-you.png">
+	<div class="form-group" ng-class="{ 'has-error': donationForm.name.$invalid && !donationForm.$pristine && donationForm.$submitted }">
+		<label for="name">What is your name?</label>
+		<input name="name" class="form-control" type="text" ng-model="donor.name" required />
+		<p ng-show="donationForm.name.$invalid && !donationForm.$pristine && donationForm.$submitted" class="help-block">Your name is required</p>
+	</div>
+	<div class="form-group" ng-class="{ 'has-error': donationForm.phone.$invalid && !donationForm.$pristine && donationForm.$submitted }">
+		<label for="phone">Best number to reach you?</label>
+		<input name="phone" class="form-control" type="number" ng-minlength="10" ng-maxlength="10" ng-model="donor.phone" />
+		<p ng-show="donationForm.phone.$invalid && !donationForm.$pristine && donationForm.$submitted" class="help-block">Please enter a valid phone number.</p>
+	</div>	
+	<div class="form-group">
+		<label for="address">Mailing address</label>
+		<input name="address" class="form-control" type="text" ng-model="donor.address" />
+	</div>
+	<div class="form-group" ng-class="{ 'has-error': donationForm.zip.$invalid && !donationForm.$pristine && donationForm.$submitted }">
+		<label for="zip">Mailing zipcode</label>
+		<input name="zip" class="form-control" type="number" ng-pattern="/[0-9]{5}/" ng-model="donor.zip" />
+		<p ng-show="donationForm.zip.$invalid && !donationForm.$pristine && donationForm.$submitted" class="help-block">Invalid Zipcode</p>
+	</div>													
+	<div class="form-group" ng-class="{ 'has-error': donationForm.email.$invalid && !donationForm.$pristine && donationForm.$submitted }">
+		<label for="email">Email address</label>
+		<input name="email" class="form-control" type="email" ng-model="donor.email" />
+		<p ng-show="donationForm.email.$invalid && !donationForm.$pristine && donationForm.$submitted" class="help-block">Please enter a valid email.</p>
+	</div>	
+	<div class="form-group">
+		<label for="contactMethod">Best way to contact you?</label>
+		<input name="contactMethod" class="form-control" type="text" ng-model="donor.contactMethod" />
+	</div>
+	<div class="form-group" ng-class="{ 'has-error': donationForm.amount.$invalid && !donationForm.$pristine && donationForm.$submitted }">
+		<label for="amount">Donation Amount</label>
+		<div class="input-group">
+			<span class="input-group-addon">$</span>
+			<input name="amount" class="form-control" type="number" ng-model="donor.amount" placeholder="0.00" required />
+		</div>
+		<p ng-show="donationForm.amount.$invalid && !donationForm.$pristine && donationForm.$submitted" class="help-block">Please contribute.</p>
+	</div>		
+
+	<button class="btn btn-primary" type="submit" ng-disabled="donationForm.$pristine">Help now!</button>					
+</form>

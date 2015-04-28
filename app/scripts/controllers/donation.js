@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('core')
-	.controller('DonationController', function($scope) {
+	.controller('DonationController', function($scope, DonationService) {
 
-		$scope.donations = [];
+		$scope.donations = DonationService.donations;
 	
 	});

@@ -33,6 +33,7 @@ nav#main-nav .active a {
 	background-color: #FFCF3A;
 	font-style: italic;
 	font-weight: bold;
+	box-shadow: 0px 2px 3px 0px gray;
 	color: black;
 }
 .donation-form {
