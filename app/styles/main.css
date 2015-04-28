@@ -64,3 +64,6 @@ nav#main-nav .active a {
 #calm-lemonade {
 	width: 100%;
 }
+#donation-img.img-responsive {
+	display: inline;
+}
