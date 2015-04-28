@@ -2,7 +2,8 @@
 
 angular.module('core', [
 		'ui.router',
-		'ngMessages'
+		'ngMessages',
+		'ngAnimate'
 ])
 .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
 	// Default to a route when given an unmatched url

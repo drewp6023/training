@@ -1,11 +1,12 @@
-<div class="jumbotron text-center"><h1>Donate all your earnings!</h1></div>
+<div class="jumbotron text-center"><h1>Donate to the Lemonade Stand!</h1></div>
 <div class="row">
 	<div class="col-md-6">
 		<div class="panel panel-primary">
 			<div class="panel-heading">Donation Form</div>
 			<div class="panel-body">
 
-				<form ng-submit="submit()" name="donationForm" novalidate ng-controller="DonationFormController as dc">
+				<form ng-submit="submit()" name="donationForm" novalidate ng-controller="DonationFormController as dc" class="donation-form">
+					<img ng-show="thankYouFlag" class="thank-you-img" src="app/images/thank-you.png">
 					<div class="form-group" ng-class="{ 'has-error': donationForm.name.$invalid && !donationForm.$pristine && donationForm.$submitted }">
 						<label for="name">What is your name?</label>
 						<input name="name" class="form-control" type="text" ng-model="donor.name" required />
@@ -41,8 +42,9 @@
 							<input name="amount" class="form-control" type="number" ng-model="donor.amount" placeholder="0.00" required />
 						</div>
 						<p ng-show="donationForm.amount.$invalid && !donationForm.$pristine && donationForm.$submitted" class="help-block">Please contribute.</p>
-					</div>					
-					<button class="btn btn-primary" type="submit" ng-disabled="donationForm.$pristine">Help now!</button>
+					</div>		
+
+					<button class="btn btn-primary" type="submit" ng-disabled="donationForm.$pristine">Help now!</button>					
 				</form>
 
 			</div>

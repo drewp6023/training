@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('core')
-	.controller('DonationFormController', function($scope) {
+	.controller('DonationFormController', function($scope, $timeout) {
 
 		$scope.submit = function() {
 
@@ -12,6 +12,11 @@ angular.module('core')
 				// Reset the model on the form and make sure the form is in it pristine state.
 				$scope.donationForm.$setPristine();
 				$scope.donor = null;
+				$scope.thankYouFlag = true;
+
+				$timeout(function() {
+					$scope.thankYouFlag = false;
+				}, 2000);
 			}
 		};
 
