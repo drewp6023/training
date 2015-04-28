@@ -20,3 +20,18 @@ table tbody tr {
 .pointer {
 	cursor: pointer;
 }
+nav#main-nav {
+	  background-color: #337ab7;
+}
+nav#main-nav .navbar-text {
+	color: white;
+}
+nav#main-nav li a {
+	color: white;
+}
+nav#main-nav .active a {
+	background-color: #FFCF3A;
+	font-style: italic;
+	font-weight: bold;
+	color: black;
+}
