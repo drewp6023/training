@@ -14,7 +14,7 @@ module.exports = function(grunt) {
 				devDependencies: true,
 				exclude: ['/jquery/', '/bootstrap/dist/js/']
 			}
-		},
+		},	
 
 		//JSHint
 		jshint: {
