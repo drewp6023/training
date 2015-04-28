@@ -1,0 +1,35 @@
+<div class="row">
+	<div class="col-md-6">
+		<div class="panel panel-primary">
+			<div class="panel-heading">
+				Sales
+			</div>
+			<div class="panel-body">
+				<h4>How many records would you like to see?</h4>
+				<input type="number" ng-model="numOfRecords" />
+				<br /><br />				
+				<table class="table">
+					<thead>
+						<tr class="odd">
+							<th ng-click="sortOrder()"></th>
+							<th ng-click="sortOrder()">Date</th>
+							<th ng-click="sortOrder()">Quantity</th>
+							<th ng-click="sortOrder()">Net Sale</th>
+							<th ng-click="sortOrder()">Cost of Goods</th>					
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="record in sales | limitTo:numOfRecords" ng-class="{ odd: $odd }">
+							<td>{{ $index + 1 }}</td>
+							<td>{{ record.date | date:'MMM dd, yyyy' | uppercase }}</td>
+							<td>{{ record.quantity }}</td>
+							<td>{{ record.netSale | currency }}</td>
+							<td>{{ record.costOfGoods | currency }}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-6"></div>
+</div>

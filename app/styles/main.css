@@ -1,0 +1,19 @@
+.container {
+	margin: 15px auto;
+}
+.odd {
+	background-color: lightgray;
+}
+.red-text {
+	color: red;
+}
+.green-text {
+	color: green;
+}
+table {
+	border:	1px solid lightgray;
+}
+table thead th,
+table tbody tr {
+	text-align: center;
+}
