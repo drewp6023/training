@@ -41,8 +41,8 @@ nav#main-nav .active a {
 }
 .thank-you-img {
 	position: absolute;
-	top: -50px;
-	right: 0;
+	left: 50%;
+	margin-left: -98.5px;
 	z-index: 100;
 	-ms-transform: rotate(-25deg); /* IE 9 */
 	-webkit-transform: rotate(-25deg); /* Chrome, Safari, Opera */  
@@ -60,4 +60,7 @@ nav#main-nav .active a {
 
 .thank-you-img.ng-hide {
   opacity:0;
+}
+#calm-lemonade {
+	width: 100%;
 }

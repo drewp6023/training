@@ -2,9 +2,13 @@
 
 angular.module('core')
 	.controller('DonationFormController', function($scope, $timeout, DonationService) {
+		$scope.contactMethods = [
+			{name: "Cell phone"},
+			{name: "Home phone"},
+			{name: "Mail"}
+		];
 
 		$scope.submit = function() {
-
 			// Only submit the form if it is valid and has been touched.
 			if ($scope.donationForm.$valid && !$scope.donationForm.$pristine) {
 				// Store the donor in the DonationService.donations object so we don't lose scope between controllers.
