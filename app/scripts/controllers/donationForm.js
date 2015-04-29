@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('core')
-	.controller('DonationFormController', function($scope, $timeout, DonationService) {
+	.controller('DonationFormController', ['$scope', '$timeout', 'DonationService', function($scope, $timeout, DonationService) {
 		$scope.contactMethods = [
 			{name: 'Phone'},
 			{name: 'Email'},
@@ -26,4 +26,4 @@ angular.module('core')
 			}
 		};
 
-	});
+	}]);

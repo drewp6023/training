@@ -10,6 +10,9 @@
 .red-text {
 	color: red;
 }
+.red-background {
+	background-color: red;
+}
 .green-text {
 	color: green;
 }
@@ -69,4 +72,16 @@ nav#main-nav .active a {
 }
 #donation-img.img-responsive {
 	display: inline;
+}
+.pointer {
+	cursor: pointer;
+}
+#salesPanel > .panel:hover {
+	box-shadow: 3px 3px 3px gray;
+	border-color: gray;
+	transition: 0.5s all ease;
+}
+.custom-panel-footer {
+	border-top: 1px solid lightgray;
+	padding: 10px 0px;
 }

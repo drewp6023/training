@@ -27,6 +27,12 @@ angular.module('core', [
 			templateUrl: '/app/views/donations.html',
 			controller: 'DonationController',
 			controllerAs: 'dc'
+		})
+		.state('transactions', {
+			url: '/transactions',
+			templateUrl: '/app/views/transactions.html',
+			controller: 'TransactionsController',
+			controllerAs: 'tc'
 		});
 }]);
 

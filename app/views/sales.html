@@ -1,6 +1,11 @@
 <div class="row">
-	<div class="col-md-6">
-		<div class="panel panel-primary">
+	<div class="col-md-12">
+			<h4>How many records would you like to see?</h4>
+			<input type="number" ng-model="numOfRecords" />
+
+			<h4>{{ statsMsg }}</h4>	
+
+<!-- 		<div class="panel panel-primary">
 			<div class="panel-heading">
 				Sales
 			</div>
@@ -29,7 +34,17 @@
 					</tbody>
 				</table>
 			</div>
+		</div> -->
+		<div ng-repeat="record in sales | orderBy:orderByField:reverseSort | limitTo:numOfRecords" class="col-md-4 pointer" sales-panel-click fire-click="displayStats(record)" record-data="record">
+			<div class="panel" ng-class="(record.grossProfit <= 200) ? 'panel-danger' : 'panel-success'">
+				<div class="panel-heading text-center">{{ record.date | date:'MMM dd, yyyy' | uppercase }}</div>
+				<div class="panel-body">
+					<p>Quantity: {{ record.quantity }}</p>
+					<p>Net Profit: {{ record.netSale | currency }}</p>
+					<p>Cost of Goods: {{ record.costOfGoods | currency }}</p>
+				</div>
+				<div class="text-center custom-panel-footer"><span>Gross Profit: {{ record.grossProfit | currency }}</span></div>
+			</div>
 		</div>
 	</div>
-	<div class="col-md-6"></div>
 </div>

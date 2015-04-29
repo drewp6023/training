@@ -63,6 +63,13 @@ module.exports = function(grunt) {
 		  }
 		},
 
+		notify_hooks: {
+			options: {
+				enabled: true,
+				max_js_hint_notifications: 5
+			}
+		},		
+
 		//JSHint
 		jshint: {
 			files: ['app/**/*.js'],
@@ -79,8 +86,10 @@ module.exports = function(grunt) {
 
 	grunt.registerTask('default', []);
 	grunt.registerTask('server', [
+		'jshint',
 		'open', 
 		'connect:server', 
-		'watch'
+		'watch',
+		'notify_hooks'
 	]);
 };
