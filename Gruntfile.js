@@ -57,5 +57,5 @@ module.exports = function(grunt) {
 	});
 
 	grunt.registerTask('default', []);
-	grunt.registerTask('server', ['open', 'connect', 'watch']);
+	grunt.registerTask('server', ['jshint', 'open', 'connect', 'watch']);
 };
