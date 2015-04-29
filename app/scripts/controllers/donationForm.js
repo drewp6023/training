@@ -3,9 +3,10 @@
 angular.module('core')
 	.controller('DonationFormController', function($scope, $timeout, DonationService) {
 		$scope.contactMethods = [
-			{name: 'Cell phone'},
-			{name: 'Home phone'},
-			{name: 'Mail'}
+			{name: 'Phone'},
+			{name: 'Email'},
+			{name: 'Standard Mail'},
+			{name: 'Carrier pigeon'}
 		];
 
 		$scope.submit = function() {
