@@ -22,7 +22,7 @@ module.exports = function(grunt) {
 			},
 		    js: {    // You need a task, can be any string
 			    options: {
-			        livereloadOnError: false
+			        //livereloadOnError: false
 			    },
 			    tasks: ['jshint'],		    	
 		        files: [   // Files to livereload on
