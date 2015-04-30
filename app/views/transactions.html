@@ -1,12 +1,12 @@
-<p><button class="btn btn-danger" ng-click="clearTransactions()">Clear Transactions</button></p>
+<p><button class="btn btn-danger" ng-click="resetProducts()">Clear Transactions</button></p>
 
 <div class="row">
-	<div ng-repeat="product in products" class="col-md-3 pointer" ng-click="addProduct($index)">
+	<div ng-repeat="product in products.items" class="col-md-3 pointer" ng-click="addProduct($index)">
 		<div class="panel panel-primary">
 			<div class="panel-heading">{{ product.content }}</div>
 			<div class="panel-body">				
 				<p>Count: {{ product.quantity }}</p>
-				<p>Total: {{ product.total | currency }}</p>
+				<p>Total: {{ (product.quantity * product.price) | currency }}</p>
 			</div>
 		</div>
 	</div>
@@ -17,6 +17,7 @@
 		<div class="panel panel-info">
 			<div class="panel-heading">Items</div>
 			<div class="panel-body">
+				&nbsp;
 				<ul ng-show="selectedProducts.length > 0">
 					<li ng-repeat="item in selectedProducts track by $index">{{ item }}</li>
 				</ul>
@@ -27,7 +28,7 @@
 		<div class="panel panel-info">
 			<div class="panel-heading">Total Cost</div>
 			<div class="panel-body">
-				{{ totals.totalCost || 0 | currency }}
+				{{ products.totals.cost || 0 | currency }}
 			</div>
 		</div>
 	</div>	

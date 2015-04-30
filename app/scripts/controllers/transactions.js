@@ -9,18 +9,15 @@ angular.module('core')
 		$scope.addProduct = function(index) {
 			// Update the product
 			TransactionsService.updateProduct(index);
-			
-			// Get the product totals and store it in scope
-			$scope.totals = TransactionsService.getTotals();
 
 			// Add selected item to selected products variable
-			$scope.selectedProducts.push(TransactionsService.getProducts(index).content);
+			$scope.selectedProducts.push($scope.products.items[index].content);
 		};
 
-		$scope.clearTransactions = function() {
-			$scope.products = TransactionsService.resetProducts();
+		$scope.resetProducts = function() {
 			$scope.selectedProducts = [];
-			$scope.totals = null;
+			TransactionsService.resetProducts();
+			$scope.products = TransactionsService.getProducts();
 		};
 
 	}]);

@@ -2,58 +2,60 @@
 
 angular.module('core')
 	.factory('TransactionsService', function() {
-		var products = [
-			{content: 'Large glass of lemonade', size: 'large', quantity: 0, price: 3, total: 0},
-			{content: 'Medium glass of lemonade', size: 'medium', quantity: 0, price: 2, total: 0},
-			{content: 'Health snack', size: 'small', quantity: 0, price: 1, total: 0},
-			{content: 'Treat', size: 'xsmall', quantity: 0, price: 0.5, total: 0}
-		];		
-
-		var getProducts = function(index) {
-			if (angular.isDefined(index)) {
-				return products[index];
-			} else {
-				return products;
+		var products = {
+			items: [
+				{content: 'Large glass of lemonade', size: 'large', quantity: 0, price: 3},
+				{content: 'Medium glass of lemonade', size: 'medium', quantity: 0, price: 2},
+				{content: 'Healthy snack', size: 'small', quantity: 0, price: 1},
+				{content: 'Treat', size: 'xsmall', quantity: 0, price: 0.5}
+			],
+			totals: {
+				quantity: 0,
+				cost: 0				
 			}
+		};	
+
+		var getProducts = function() {
+			return products;
 		};
 
-		var updateProduct = function(index) {
-			var product = products[index];
-
-			product.quantity++;
-			product.total = product.quantity * product.price;
+		var getItems = function() {
+			return products.items;
 		};
 
 		var getTotals = function() {
-			var totals = {
-				totalQuantity: 0,
-				totalCost: 0
-			};
-
-			angular.forEach(products, function(obj) {
-				totals.totalQuantity += obj.quantity;
-				totals.totalCost += obj.total;
-			});
-
-			return totals;
+			return products.totals;
 		};
 
+		var updateProduct = function(index) {
+			var product = products.items[index];
+			var totals = products.totals;
+
+			product.quantity++;
+			totals.quantity++;
+			totals.cost += product.price;
+		};
+		
 		var resetProducts = function() {
-			var defaultProducts = [
-				{content: 'Large glass of lemonade', size: 'large', quantity: 0, price: 3, total: 0},
-				{content: 'Medium glass of lemonade', size: 'medium', quantity: 0, price: 2, total: 0},
-				{content: 'Health snack', size: 'small', quantity: 0, price: 1, total: 0},
-				{content: 'Treat', size: 'xsmall', quantity: 0, price: 0.5, total: 0}
-			];			
-
-			products = defaultProducts;
-
-			return products;
+			console.log(products);
+			products = {
+				items: [
+					{content: 'Large glass of lemonade', size: 'large', quantity: 0, price: 3},
+					{content: 'Medium glass of lemonade', size: 'medium', quantity: 0, price: 2},
+					{content: 'Healthy snack', size: 'small', quantity: 0, price: 1},
+					{content: 'Treat', size: 'xsmall', quantity: 0, price: 0.5}
+				],
+				totals: {
+					quantity: 0,
+					cost: 0				
+				}
+			};
 		};
 
 		return {
 			getProducts: getProducts,
 			updateProduct: updateProduct,
+			getItems: getItems,
 			getTotals: getTotals,
 			resetProducts: resetProducts
 		};		
