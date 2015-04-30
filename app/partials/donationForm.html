@@ -39,5 +39,6 @@
 		<p ng-show="donationForm.amount.$invalid && !donationForm.$pristine && donationForm.$submitted" class="help-block">Please contribute a valid amount.</p>
 	</div>		
 
-	<button class="btn btn-primary" type="submit" ng-disabled="donationForm.$pristine">Help now!</button>					
+	<button class="btn btn-primary" type="submit" ng-disabled="donationForm.$pristine">Help now!</button>
+	<span ng-show="donor.latitude && donor.longitude && donationForm.$submitted">Thank you from {{ donor.latitude }} latitude, {{ donor.longitude }} longitude.</span>					
 </form>

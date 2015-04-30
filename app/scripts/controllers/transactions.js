@@ -1,10 +1,14 @@
 'use strict';
 
 angular.module('core')
-	.controller('TransactionsController', ['$scope', 'TransactionsService', function($scope, TransactionsService) {
+	.controller('TransactionsController', ['$scope', 'TransactionsService', '$http', function($scope, TransactionsService) {
 
 		$scope.products = TransactionsService.getProducts();
 		$scope.selectedProducts = [];
+
+		var updateProducts = function() {
+			$scope.products = TransactionsService.getProducts();
+		};
 
 		$scope.addProduct = function(index) {
 			// Update the product
@@ -17,7 +21,9 @@ angular.module('core')
 		$scope.resetProducts = function() {
 			$scope.selectedProducts = [];
 			TransactionsService.resetProducts();
-			$scope.products = TransactionsService.getProducts();
+
+			// Update the products object with the cleared parameters
+			updateProducts();
 		};
 
 	}]);

@@ -33,6 +33,12 @@ angular.module('core', [
 			templateUrl: '/app/views/transactions.html',
 			controller: 'TransactionsController',
 			controllerAs: 'tc'
+		})
+		.state('supplies', {
+			url: '/supplies',
+			templateUrl: '/app/views/supplies.html',
+			controller: 'SuppliesController',
+			controllerAs: 'sc'
 		});
 }]);
 
