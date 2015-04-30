@@ -17,4 +17,10 @@ angular.module('core')
 			$scope.selectedProducts.push(TransactionsService.getProducts(index).content);
 		};
 
+		$scope.clearTransactions = function() {
+			$scope.products = TransactionsService.resetProducts();
+			$scope.selectedProducts = [];
+			$scope.totals = null;
+		};
+
 	}]);

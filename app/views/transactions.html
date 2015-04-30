@@ -1,4 +1,4 @@
-<p><button class="btn btn-danger" ng-click="">Clear Transactions</button></p>
+<p><button class="btn btn-danger" ng-click="clearTransactions()">Clear Transactions</button></p>
 
 <div class="row">
 	<div ng-repeat="product in products" class="col-md-3 pointer" ng-click="addProduct($index)">
@@ -27,7 +27,7 @@
 		<div class="panel panel-info">
 			<div class="panel-heading">Total Cost</div>
 			<div class="panel-body">
-				{{ totals.totalCost | currency }}
+				{{ totals.totalCost || 0 | currency }}
 			</div>
 		</div>
 	</div>	
